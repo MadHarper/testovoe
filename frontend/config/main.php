@@ -36,14 +36,25 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        'parserFabric' => [
+            'class' => 'frontend\fabric\ItemParserFabric'
+        ],
+    ],
+    'container' => [
+        'definitions' => [
+            'frontend\interfaces\ItemAttributeRepositoryInterface' => [
+                'class' => 'frontend\repositories\TyreRepository'
+            ],
+            'frontend\interfaces\ItemRepositoryInterface' => [
+                'class' => 'frontend\repositories\ItemRepository'
+            ],
+        ],
     ],
     'params' => $params,
 ];
